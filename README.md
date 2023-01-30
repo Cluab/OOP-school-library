@@ -19,11 +19,8 @@
 
 # 📖  <a name="about-project"></a>
 
-**Ruby Enumerable** Imagine that you are the librarian of OOP University, and you need a tool to record what books are in the library and who borrows them The school library app allows you to:
+**OOP School Library** Imagine that you are the librarian of OOP University, and you need a tool to record what books are in the library and who borrows them The school library app allows you to do all of that in a well organized manner.
 
-Add new students or teachers.
-Add new books.
-Save records of who borrowed a given book and when.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -38,7 +35,9 @@ Save records of who borrowed a given book and when.
 
 ### Key Features <a name="key-features"></a>
 
-- **Decode Morse Code alphabet**
+- **Add new students or teachers**
+- **Add new books**
+- **Save records of who borrowed a given book and when**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -87,7 +86,7 @@ cd OOP-school-library
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Decode with numbers and symbols**
+- **loading...**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
