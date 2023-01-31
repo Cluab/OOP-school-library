@@ -1,5 +1,4 @@
 class Person < Nameable
-
   attr_accessor :name, :age
   attr_reader :id
 
@@ -32,12 +31,17 @@ class Nameable
 end
 
 class BaseDecorator < Nameable
-
   def initialize(nameable)
     @nameable = nameable
   end
 
   def correct_name
     @namealbe
+  end
+end
+
+class CapitalizeDecorator < BaseDecorator
+  def correct_name
+    @nameable.upcase
   end
 end
