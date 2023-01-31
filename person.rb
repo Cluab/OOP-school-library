@@ -1,4 +1,6 @@
 class Person
+  include Nameable
+
   attr_accessor :name, :age
   attr_reader :id
 
@@ -13,9 +15,19 @@ class Person
     of_age? || @parent_permission
   end
 
+  def correct_name
+    @name
+  end
+
   private
 
   def of_age?
     @age >= 18
+  end
+end
+
+class Nameable
+  def correct_name
+    raise NotImplementedError
   end
 end
