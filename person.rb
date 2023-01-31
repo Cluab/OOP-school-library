@@ -49,7 +49,6 @@ class CapitalizeDecorator < BaseDecorator
 end
 
 class TrimmerDecorator < BaseDecorator
-  # trim so i has only 10 characters
   def correct_name
     @nameable.correct_name.slice(0, 10)
   end
