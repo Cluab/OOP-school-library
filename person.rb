@@ -1,5 +1,4 @@
-class Person
-  include Nameable
+class Person < Nameable
 
   attr_accessor :name, :age
   attr_reader :id
@@ -29,5 +28,16 @@ end
 class Nameable
   def correct_name
     raise NotImplementedError
+  end
+end
+
+class BaseDecorator < Nameable
+
+  def initialize(nameable)
+    @nameable = nameable
+  end
+
+  def correct_name
+    @namealbe
   end
 end
