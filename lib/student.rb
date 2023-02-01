@@ -20,9 +20,8 @@ class Student < Person
 end
 
 # art = Classroom.new(Art)
-
 # alex = Student.new(19, art, 'Alex')
-
+# art.add_student(alex)
 # alex.classroom
 # alex.classroom.label
 # alex.classroom.students
