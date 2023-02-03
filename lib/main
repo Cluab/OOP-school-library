@@ -2,6 +2,8 @@
 require_relative './app'
 
 def introduction
+  puts ''
+  puts ''
   puts 'Welcome to School Library App!'
   puts ''
   puts 'Please choose an option by entering a number:'

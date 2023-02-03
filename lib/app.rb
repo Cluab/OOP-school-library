@@ -14,6 +14,10 @@ class App
   end
 
   def list_books
+    if @books.empty?
+      puts 'There are no books in the library you can add one by typing "4" at the main menu.'
+      return
+    end
     @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
   end
 
@@ -25,16 +29,38 @@ class App
     @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
   end
 
-  def book(title, author)
-    Book.new(title, author)
+  def list_rentals
+    print 'ID of person: '
+    id = gets.chomp.to_i
+    puts 'Rentals:'
+    @rentals.each do |rental|
+      next unless rental.person.id == id
+
+      puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}"
+    end
   end
 
-  def classroom(label)
-    Classroom.new(label)
+  def create_book
+    print 'Title: '
+    title = gets.chomp
+    print 'Author: '
+    author = gets.chomp
+    @books.push(Book.new(title, author))
   end
 
-  def rental(date, book, person)
-    Rental.new(date, book, person)
+  def create_rental
+    puts 'Select a book from the following list by number'
+    @books.each_with_index { |book, index| puts "#{index}) Title: #{book.title}, Author: #{book.author}" }
+    book_index = gets.chomp.to_i
+    puts 'Select a person from the following list by number (not id)'
+    @people.each_with_index do |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+    person_index = gets.chomp.to_i
+    print 'Date: '
+    date = gets.chomp
+    @rentals.push(Rental.new(date, @books[book_index], @people[person_index]))
+    puts 'Rental created successfully'
   end
 
   def create_student(age, name)
