@@ -25,7 +25,7 @@ end
 def options_one(option, app)
   case option
   when 1
-    list_books
+    app.list_books
   when 2
     app.list_people
   when 3
@@ -34,15 +34,15 @@ def options_one(option, app)
   opener(app)
 end
 
-def options_two(option, _app)
+def options_two(option, app)
   case option
 
   when 4
-    create_book
+    app.create_book
   when 5
-    create_rental
+    app.create_rental
   when 6
-    list_rentals
+    app.list_rentals
   when 7
     puts 'Thank you for using this app!'
   end
