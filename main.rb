@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-# add the following line to the top of the file
+# frozen_string_literal: true
+
 require_relative './app'
 def introduction
   puts ''
