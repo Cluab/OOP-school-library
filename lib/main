@@ -60,7 +60,6 @@ def checker(option, app)
     options_two(option, app)
     return
   end
-  # should print invalid input if option is not between 1 and 7
   return unless option < 1 || option > 7
 
   puts 'Invalid input'
