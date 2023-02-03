@@ -1,4 +1,4 @@
-require './lib/person'
+require_relative './person'
 
 class Book
   attr_accessor :title, :author
