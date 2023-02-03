@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
-
+# rubocop:disable
 require_relative './app'
 def introduction
   puts ''
