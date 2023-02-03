@@ -14,18 +14,25 @@ def introduction
   puts '7 - Exit'
 end
 
-def options_one(option)
+def opener(app)
+  introduction
+  option = gets.chomp.to_i
+  checker(option, app)
+end
+
+def options_one(option, app)
   case option
   when 1
     list_books
   when 2
-    list_people
+    app.list_people
   when 3
-    App.create_person
+    app.create_person
   end
+  opener(app)
 end
 
-def options_two(option)
+def options_two(option, _app)
   case option
 
   when 4
@@ -37,25 +44,30 @@ def options_two(option)
   when 7
     puts 'Thank you for using this app!'
   end
+  return unless option != 7
+
+  opener(app)
 end
 
-def checker(option)
-  if option >= 1 && option <= 7
-    options_one(option)
-    if option > 3 && option < 8
-      options_two(option)
-    else
-      puts 'That is not a valid option'
-    end
-  else
-    puts 'That is not a valid option'
+def checker(option, app)
+  if option >= 1 && option <= 3
+    options_one(option, app)
+    return
   end
+  if option >= 4 && option <= 7
+    options_two(option, app)
+    return
+  end
+  # should print invalid input if option is not between 1 and 7
+  return unless option < 1 || option > 7
+
+  puts 'Invalid input'
+  opener(app)
 end
 
 def main
-  introduction
-  option = gets.chomp.to_i
-  checker(option)
+  app = App.new
+  opener(app)
 end
 
 main
