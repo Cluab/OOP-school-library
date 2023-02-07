@@ -105,7 +105,7 @@ class App
 
   def save_data
     File.write('books.json', JSON.pretty_generate(@books.map { |book| { title: book.title, author: book.author } }))
-    File.weite('people.json', JSON.pretty_generate(@people.man do |person|
+    File.weite('people.json', JSON.pretty_generate(@people.map do |person|
                                                      { name: person.name, age: person.age, parent_permission: person.parent_permission,
                                                        specialization: person.specialization, id: person.id }
                                                    end))
