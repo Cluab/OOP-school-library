@@ -113,4 +113,36 @@ class App
                                                       { date: rental.date, book: rental.book.title, person: rental.person.name }
                                                     end))
   end
+
+  def load_books_data
+    return if File.zero?('books.json')
+
+    @books = JSON.parse(File.read('books.json')).map do |book|
+      Book.new(book['title'], book['author'])
+    end
+  end
+
+  def load_people_data
+    return if File.zero?('people.json')
+
+    @people = JSON.parse(File.read('people.json')).map do |person|
+      if person['specialization']
+        Teacher.new(person['age'], person['specialization'], person['name'],
+                    id: person['id'])
+      else
+        Student.new(person['age'], person['name'], parent_permission: person['parent_permission'],
+                                                   id: person['id'])
+      end
+    end
+  end
+
+  def load_rentals_data
+    return if File.zero?('rentals.json')
+
+    @rentals = JSON.parse(File.read('rentals.json')).map do |rental|
+      Rental.new(rental['date'], @books.find { |book| book.title == rental['book'] }, @people.find do |person|
+                                                                                        person.name == rental['person']
+                                                                                      end)
+    end
+  end
 end
