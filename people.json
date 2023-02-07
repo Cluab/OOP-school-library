@@ -1,0 +1,13 @@
+[
+  {
+    "name": "test_student",
+    "age": "15",
+    "parent_permission": false
+  },
+  {
+    "name": "ahmed",
+    "age": "60",
+    "parent_permission": true,
+    "specialization": "math"
+  }
+]
