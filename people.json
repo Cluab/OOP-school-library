@@ -1,13 +1,27 @@
 [
   {
-    "name": "test_student",
+    "name": "mike",
+    "age": "14",
+    "parent_permission": true
+  },
+  {
+    "name": "mike",
+    "age": "14",
+    "parent_permission": true
+  },
+  {
+    "name": "ahmed",
+    "age": "16",
+    "parent_permission": false
+  },
+  {
+    "name": "test",
     "age": "15",
     "parent_permission": false
   },
   {
-    "name": "ahmed",
-    "age": "60",
-    "parent_permission": true,
-    "specialization": "math"
+    "name": "fix",
+    "age": "16",
+    "parent_permission": true
   }
 ]

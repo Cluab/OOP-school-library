@@ -67,15 +67,7 @@ class App
   def create_student(age, name)
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp
-    case parent_permission
-    when 'y' || 'Y'
-      parent_permission = true
-    when 'n' || 'N'
-      parent_permission = false
-    else
-      puts 'Invalid input'
-      return
-    end
+    parent_permission = parent_permission.downcase == 'y'
     @people.push(Student.new(age, name, parent_permission: parent_permission))
   end
 
@@ -104,6 +96,10 @@ class App
   end
 
   def save_people_data
+    if @people.empty?
+      puts 'There are no people to save'
+      return
+    end
     File.write('people.json', JSON.pretty_generate(
                                 @people.map do |person|
                                   if person.instance_of?(Teacher)
@@ -117,10 +113,18 @@ class App
   end
 
   def save_books_data
+    if @books.empty?
+      puts 'There are no books to save'
+      return
+    end
     File.write('books.json', JSON.pretty_generate(@books.map { |book| { title: book.title, author: book.author } }))
   end
 
   def save_rentals_data
+    if @rentals.empty?
+      puts 'There are no rentals to save'
+      return
+    end
     File.write('rentals.json', JSON.pretty_generate(@rentals.map do |rental|
                                                       { date: rental.date, book: rental.book.title,
                                                         person: rental.person.name }
@@ -128,7 +132,7 @@ class App
   end
 
   def load_books_data
-    return if File.zero?('books.json')
+    return if File.zero?('books.json') || File.exist?('books.json') == false
 
     @books = JSON.parse(File.read('books.json')).map do |book|
       Book.new(book['title'], book['author'])
@@ -136,7 +140,7 @@ class App
   end
 
   def load_people_data
-    return if File.zero?('people.json')
+    return if File.zero?('people.json') || File.exist?('people.json') == false
 
     @people = JSON.parse(File.read('people.json')).map do |person|
       if person['specialization']
@@ -148,7 +152,7 @@ class App
   end
 
   def load_rentals_data
-    return if File.zero?('rentals.json')
+    return if File.zero?('rentals.json') || File.exist?('rentals.json') == false
 
     @rentals = JSON.parse(File.read('rentals.json')).map do |rental|
       Rental.new(rental['date'], @books.find { |book| book.title == rental['book'] }, @people.find do |person|
