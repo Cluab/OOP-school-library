@@ -1,3 +1,4 @@
+require 'json'
 require_relative './book'
 require_relative './classroom'
 require_relative './person'
@@ -100,5 +101,16 @@ class App
       puts 'Invalid option'
       nil
     end
+  end
+
+  def save_data
+    File.write('books.json', JSON.pretty_generate(@books.map { |book| { title: book.title, author: book.author } }))
+    File.weite('people.json', JSON.pretty_generate(@people.man do |person|
+                                                     { name: person.name, age: person.age, parent_permission: person.parent_permission,
+                                                       specialization: person.specialization, id: person.id }
+                                                   end))
+    File.write('rentals.json', JSON.pretty_generate(@rentals.map do |rental|
+                                                      { date: rental.date, book: rental.book.title, person: rental.person.name }
+                                                    end))
   end
 end
