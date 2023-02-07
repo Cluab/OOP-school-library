@@ -5,6 +5,9 @@ require_relative './app'
 class SchoolLibrary
   def initialize(app)
     @app = app
+    @app.load_books_data
+    @app.load_people_data
+    @app.load_rentals_data
   end
 
   def run
@@ -63,6 +66,9 @@ class SchoolLibrary
       @app.list_rentals
     when 7
       puts 'Thank you for using this app!'
+      @app.save_books_data
+      @app.save_people_data
+      @app.save_rentals_data
     end
   end
 end

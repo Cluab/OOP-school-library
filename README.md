@@ -2,18 +2,20 @@
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+- [� Table of Contents](#-table-of-contents)
+- [📖  ](#--)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -78,6 +80,12 @@ cd OOP-school-library
 👤 **Ibrahim Suhail Alyousefi**
 
 - GitHub: [Ibrahim Suhail Alyousefi](https://github.com/Cluab)
+
+👤 **Gina**
+
+- GitHub: [@ginabeki](https://github.com/ginabeki)
+- Twitter: [@gina](https://twitter.com/twitterhandle)
+- LinkedIn: [ginabeki](https://linkedin.com/in/ginabeki)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
