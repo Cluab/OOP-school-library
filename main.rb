@@ -5,6 +5,9 @@ require_relative './app'
 class SchoolLibrary
   def initialize(app)
     @app = app
+    @app.load_books_data
+    @app.load_people_data
+    @app.load_rentals_data
   end
 
   def run

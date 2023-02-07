@@ -105,9 +105,13 @@ class App
 
   def save_data
     File.write('books.json', JSON.pretty_generate(@books.map { |book| { title: book.title, author: book.author } }))
-    File.weite('people.json', JSON.pretty_generate(@people.map do |person|
-                                                     { name: person.name, age: person.age, parent_permission: person.parent_permission,
-                                                       specialization: person.specialization, id: person.id }
+    File.write('people.json', JSON.pretty_generate(@people.map do |person|
+                                                     if person.instance_of?(Teacher)
+                                                       { name: person.name, age: person.age, parent_permission: person.parent_permission,
+                                                         specialization: person.specialization }
+                                                     else
+                                                       { name: person.name, age: person.age, parent_permission: person.parent_permission }
+                                                     end
                                                    end))
     File.write('rentals.json', JSON.pretty_generate(@rentals.map do |rental|
                                                       { date: rental.date, book: rental.book.title, person: rental.person.name }
@@ -127,11 +131,9 @@ class App
 
     @people = JSON.parse(File.read('people.json')).map do |person|
       if person['specialization']
-        Teacher.new(person['age'], person['specialization'], person['name'],
-                    id: person['id'])
+        Teacher.new(person['age'], person['specialization'], person['name'],)
       else
-        Student.new(person['age'], person['name'], parent_permission: person['parent_permission'],
-                                                   id: person['id'])
+        Student.new(person['age'], person['name'], parent_permission: person['parent_permission'])
       end
     end
   end
