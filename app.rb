@@ -103,18 +103,27 @@ class App
     end
   end
 
-  def save_data
+  def save_people_data
+    File.write('people.json', JSON.pretty_generate(
+                                @people.map do |person|
+                                  if person.instance_of?(Teacher)
+                                    { name: person.name, age: person.age, parent_permission: person.parent_permission,
+                                      specialization: person.specialization }
+                                  else
+                                    { name: person.name, age: person.age, parent_permission: person.parent_permission }
+                                  end
+                                end
+                              ))
+  end
+
+  def save_books_data
     File.write('books.json', JSON.pretty_generate(@books.map { |book| { title: book.title, author: book.author } }))
-    File.write('people.json', JSON.pretty_generate(@people.map do |person|
-                                                     if person.instance_of?(Teacher)
-                                                       { name: person.name, age: person.age, parent_permission: person.parent_permission,
-                                                         specialization: person.specialization }
-                                                     else
-                                                       { name: person.name, age: person.age, parent_permission: person.parent_permission }
-                                                     end
-                                                   end))
+  end
+
+  def save_rentals_data
     File.write('rentals.json', JSON.pretty_generate(@rentals.map do |rental|
-                                                      { date: rental.date, book: rental.book.title, person: rental.person.name }
+                                                      { date: rental.date, book: rental.book.title,
+                                                        person: rental.person.name }
                                                     end))
   end
 
@@ -131,7 +140,7 @@ class App
 
     @people = JSON.parse(File.read('people.json')).map do |person|
       if person['specialization']
-        Teacher.new(person['age'], person['specialization'], person['name'],)
+        Teacher.new(person['age'], person['specialization'], person['name'])
       else
         Student.new(person['age'], person['name'], parent_permission: person['parent_permission'])
       end

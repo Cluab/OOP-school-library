@@ -66,7 +66,9 @@ class SchoolLibrary
       @app.list_rentals
     when 7
       puts 'Thank you for using this app!'
-      @app.save_data
+      @app.save_books_data
+      @app.save_people_data
+      @app.save_rentals_data
     end
   end
 end
