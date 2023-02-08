@@ -2,29 +2,24 @@ require './spec/spec_helper'
 
 describe Teacher do
   before :all do
-    @teacher = Teacher.new(20, 'Greg', parent_permission: true)
-    
+    @teacher = Teacher.new(20, 'Sport','Greg')
   end
 
   describe '#new' do
-    it 'takes in three parameters and returns a Student object' do
-      expect(@student).to be_an_instance_of Student
-    end
-    it 'takes in one parameter and returns a Classroom object' do
-      expect(@classroom).to be_an_instance_of Classroom
+    it 'takes in three parameters and returns a Teacher object' do
+      expect(@teacher).to be_an_instance_of Teacher
     end
   end
 
-  it 'should return student name' do
-    expect(@student.name).to eq 'Greg'
+  it 'should return teacher name' do
+    expect(@teacher.name).to eq 'Greg'
   end
 
-  it 'should return ¯(ツ)/¯ for the play_hooky method' do
-    expect(@student.play_hooky).to eq '¯(ツ)/¯'
+  it 'should return teacher specialization ' do
+    expect(@teacher.specialization).to eq 'Sport'
   end
 
-  it 'should return specific student class' do
-    @classroom.add_student(@student)
-    expect(@student.classroom.label).to eq 'Mathematics'
+  it 'should return teacher can use services to true' do
+    expect(@teacher.can_use_services?).to eq true
   end
 end
