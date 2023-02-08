@@ -1,4 +1,5 @@
 require 'json'
+require_relative './rental'
 require_relative './book'
 require_relative './classroom'
 require_relative './person'
