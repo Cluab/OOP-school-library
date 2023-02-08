@@ -2,7 +2,7 @@ require './spec/spec_helper'
 
 describe Teacher do
   before :all do
-    @teacher = Teacher.new(20, 'Sport','Greg')
+    @teacher = Teacher.new(20, 'Sport', 'Greg')
   end
 
   describe '#new' do
