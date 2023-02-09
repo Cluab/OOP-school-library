@@ -1,20 +1,5 @@
 require_relative './person'
-
-class Book
-  attr_accessor :title, :author
-  attr_reader :rentals
-
-  def initialize(title, author)
-    @title = title
-    @author = author
-    @rentals = []
-  end
-
-  def add_rental(rental)
-    rental.book = self
-    @rentals.push(rental) unless @rentals.include?(rental)
-  end
-end
+require_relative './book'
 
 class Rental
   attr_accessor :date
